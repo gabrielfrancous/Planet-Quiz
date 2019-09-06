@@ -1,0 +1,18 @@
+html {
+  padding: 20pt;
+  background-image:url ("https://www.worldatlas.com/r/w728-h425-c728x425/upload/48/13/92/shutterstock-618068714.jpg");
+
+
+body {
+  font-family: sans-serif;
+  font-size: 20pt;
+}
+
+ul, li {
+  font-family: sans-serif;
+}
+
+.scoreBlock {
+  font-size: 50pt;
+  font-color: green;
+}
