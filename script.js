@@ -3,7 +3,7 @@ let number = 0;
 
 function endingQuiz() {
   $('.questionBlock').html(`<p>Your final score is ${score} out of 5</p><p>If you want  to try again, click here</p><button type="button" class="restartButton">Start over</button>`);
-  $('.scoreBlock').remove();
+  $('.scoreBlock').hide();
 }
 
 function callQuestion () {
@@ -86,22 +86,27 @@ function proceedQuiz() {
 
 function notGreat() {
   let rightAnswer = `${questions[number].right}`;
-  $('.questionBlock').html('<p>The correct answer was ${rightAnswer}.</p><button type="button" class="nextButton">Continue</button>');
+  $('.questionBlock').html(`<p>The correct answer was ${rightAnswer}.</p><button type="button" class="nextButton">Continue</button>`);
   $('.scoreBlock').html(currentScore());
 }
 
 
 function backToBeginning () {
-  $('questionBlock').on('click', '.restartButton', function (event) {
-    let score = 0;
-    let number = 0;
-    location.reload();
-    $('questionBlock').html(beginQuiz());
+  $('.questionBlock').on('click', '.restartButton', function (event) {
+    score = 0;
+    number = 0;
+    $('.questionBlock').html(callQuestion());
+    $('.scoreBlock').show();
+  });
+}
+
+function renderInitialHtml() {
+  $('.questionBlock').on('click', '.restartButton', function (event) {
   });
 }
 
 function beginQuiz () {
-  $('.quizStart').on('click', function (event) {
+  $('.questionBlock').on('click', '.quizStart', function (event) {
     event.preventDefault();
     $('.questionBlock').html(callQuestion());
   });
@@ -123,6 +128,8 @@ function firstProcedure () {
   currentScore();
   proceedQuiz();
   backToBeginning();
+  currentScore();
 }
 
 $(firstProcedure)
+
