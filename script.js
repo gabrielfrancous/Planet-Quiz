@@ -96,6 +96,7 @@ function backToBeginning () {
     score = 0;
     number = 0;
     $('.questionBlock').html(callQuestion());
+    $('.scoreBlock').html(currentScore());
     $('.scoreBlock').show();
   });
 }
@@ -132,4 +133,3 @@ function firstProcedure () {
 }
 
 $(firstProcedure)
-
